@@ -1,0 +1,40 @@
+body {
+    background-color: #FFFAE3;
+    color: #4F4F4F;
+}
+
+.navbar {
+    background-color: #FFC107;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.hero {
+    background: url('sunflower-bg.jpg') center/cover no-repeat;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.btn-donate {
+    background-color: #FFD700;
+    color: #4F4F4F;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
