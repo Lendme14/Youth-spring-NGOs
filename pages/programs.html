@@ -71,27 +71,48 @@
         .btn-donate:hover {
             background-color: #cc5500;
         }
-        /* Program Buttons */
-        .btn-warning {
-            background-color: #ff6600; /* Sunflower Yellow */
+        /* Program Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+        }
+        .program-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        .program-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .program-card h3 {
+            font-size: 1.6em;
+            color: #ff6600;
+        }
+        .program-card p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .btn-join {
+            background-color: #ff6600;
             color: white;
-            font-size: 1.1rem;
             padding: 10px 20px;
+            font-size: 1.2em;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: bold;
         }
-
-        .btn-warning:hover {
-            background-color: #cc5500; /* Darker orange on hover */
-            color: white;
-            text-decoration: none;
+        .btn-join:hover {
+            background-color: #cc5500;
         }
-
-        .mt-2 {
-            margin-top: 15px;
-        }
-
         /* Footer */
         #footer {
             background-color: #ffe066;
@@ -108,6 +129,7 @@
 <body>
     <!-- Header -->
     <div id="header">Youth Spring - Empowering Nigerian Youth</div>
+    
     <!-- Navigation Grid -->
     <div class="nav-grid">
         <a href="../index.html">Home</a>
@@ -116,16 +138,20 @@
         <a href="donate.html">Donate</a>
         <a href="programs.html">Our Programs</a>
     </div>
-    
+
     <!-- Main Content -->
     <main>
-        <section id="programs" class="container my-4">
-            <h1 class="text-warning">🌻 Youth Spring Programs</h1>
-            <p>“Empowering the roots to bloom into the future.”</p>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="p-4 bg-light border rounded">
-                        <h3>✅ Empowerment Loans Initiative</h3>
+        <section id="programs">
+            <div class="container">
+                <h1>🌻 Youth Spring Programs</h1>
+                <p>“Empowering the roots to bloom into the future.”</p>
+
+                <!-- Programs Grid -->
+                <div class="programs-grid">
+                    <!-- Program 1 -->
+                    <div class="program-card">
+                        <img src="https://via.placeholder.com/300" alt="Program Image">
+                        <h3>Empowerment Loans Initiative</h3>
                         <p>Goal: Provide interest-free, small-scale startup loans to youth and underprivileged individuals with viable ideas.</p>
                         <ul>
                             <li>Simple online registration process</li>
@@ -133,113 +159,84 @@
                             <li>Business mentorship during and after disbursement</li>
                             <li>Monthly success stories and follow-ups</li>
                         </ul>
-                        <p>🟡 Tagline: “We don’t give handouts. We give hand-ups.”</p>
+                        <p><strong>Tagline: “We don’t give handouts. We give hand-ups.”</strong></p>
+                        <button class="btn-join" data-bs-toggle="modal" data-bs-target="#joinModal">Join Program</button>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 bg-light border rounded">
-                        <h3>✅ Skill Spring (Digital & Vocational Empowerment)</h3>
+                    <!-- Program 2 -->
+                    <div class="program-card">
+                        <img src="https://via.placeholder.com/300" alt="Program Image">
+                        <h3>Skill Spring (Digital & Vocational Empowerment)</h3>
                         <p>Goal: Equip individuals with practical skills that make them financially independent.</p>
                         <ul>
                             <li>Tech: Web development, graphics, content creation</li>
                             <li>Vocational: Fashion design, solar installation, catering</li>
                             <li>Certification and starter kits for top participants</li>
                         </ul>
-                        <p>🟡 Tagline: “Learn. Build. Earn.”</p>
+                        <p><strong>Tagline: “Learn. Build. Earn.”</strong></p>
+                        <button class="btn-join" data-bs-toggle="modal" data-bs-target="#joinModal">Join Program</button>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 bg-light border rounded">
-                        <h3>✅ Spring Scholars (Student Grant Program)</h3>
+                    <!-- Program 3 -->
+                    <div class="program-card">
+                        <img src="https://via.placeholder.com/300" alt="Program Image">
+                        <h3>Spring Scholars (Student Grant Program)</h3>
                         <p>Goal: Support bright but struggling students with grants, learning materials, and mentorship.</p>
                         <ul>
                             <li>Open applications every semester</li>
                             <li>Priority for students with proof of need</li>
                             <li>Academic, character, and ambition considered</li>
                         </ul>
-                        <p>🟡 Tagline: “No dream should die because of tuition.”</p>
+                        <p><strong>Tagline: “No dream should die because of tuition.”</strong></p>
+                        <button class="btn-join" data-bs-toggle="modal" data-bs-target="#joinModal">Join Program</button>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 bg-light border rounded">
-                        <h3>✅ Community Relief & Outreach</h3>
+                    <!-- Program 4 -->
+                    <div class="program-card">
+                        <img src="https://via.placeholder.com/300" alt="Program Image">
+                        <h3>Community Relief & Outreach</h3>
                         <p>Goal: Direct aid and relief materials to communities in need during crises or emergencies.</p>
                         <ul>
                             <li>Organize food drives, clothing donations, and medical outreaches</li>
                             <li>Partner with local NGOs and hospitals</li>
                             <li>Mobilize youth volunteers to serve in their communities</li>
                         </ul>
-                        <p>🟡 Tagline: “The power of people helping people.”</p>
+                        <p><strong>Tagline: “The power of people helping people.”</strong></p>
+                        <button class="btn-join" data-bs-toggle="modal" data-bs-target="#joinModal">Join Program</button>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 bg-light border rounded">
-                        <h3>✅ Awareness & Advocacy</h3>
+                    <!-- Program 5 -->
+                    <div class="program-card">
+                        <img src="https://via.placeholder.com/300" alt="Program Image">
+                        <h3>Awareness & Advocacy</h3>
                         <p>Goal: Educate and sensitize the public on key societal issues: mental health, abuse, entrepreneurship, and leadership.</p>
                         <ul>
                             <li>Online campaigns</li>
                             <li>Radio & local outreach events</li>
                             <li>Street campaigns and community forums</li>
                         </ul>
-                        <p>🟡 Tagline: “Change starts with awareness.”</p>
+                        <p><strong>Tagline: “Change starts with awareness.”</strong></p>
+                        <button class="btn-join" data-bs-toggle="modal" data-bs-target="#joinModal">Join Program</button>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 bg-light border rounded">
-                        <h3>✅ Youth Spring Network (Alumni & Partners)</h3>
+                    <!-- Program 6 -->
+                    <div class="program-card">
+                        <img src="https://via.placeholder.com/300" alt="Program Image">
+                        <h3>Youth Spring Network (Alumni & Partners)</h3>
                         <p>Goal: Build a network of empowered alumni and partners who give back and mentor.</p>
                         <ul>
                             <li>Job referrals & internship opportunities</li>
                             <li>Volunteer and speaker invites</li>
                             <li>Peer-to-peer business collaborations</li>
                         </ul>
-                        <p>🟡 Tagline: “You rise. You lift others.”</p>
+                        <p><strong>Tagline: “You rise. You lift others.”</strong></p>
+                        <button class="btn-join" data-bs-toggle="modal" data-bs-target="#joinModal">Join Program</button>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal -->
-    <div class="modal fade" id="programModal" tabindex="-1" aria-labelledby="programModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="programModalLabel">Program Registration</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Thank you for showing interest in our program. Please provide your details to get started.</p>
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your full name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
     <div id="footer">
-        © 2025 Youth Spring NGOs. All rights reserved.
-        <a href="contact.html" class="text-white">Contact Us</a>
+        <p>© 2025 Youth Spring. All rights reserved.</p>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
