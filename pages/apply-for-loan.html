@@ -3,19 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply for Loan</title>
+    <title>Get a Loan - Youth Spring</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #fdf6e3; /* Soft cream background */
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
         /* Header */
         #header {
@@ -23,75 +16,40 @@
             padding: 15px;
             text-align: center;
             font-weight: bold;
-        }
-        /* Navigation Grid */
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 10px;
-            background-color: #ffe066;
-            padding: 15px;
-            text-align: center;
-        }
-        .nav-grid a {
-            display: block;
-            background-color: #ff6600;
             color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-decoration: none;
+        }
+        /* Main Content */
+        .main-content {
+            margin: 40px 0;
+        }
+        .section-title {
+            font-size: 2em;
             font-weight: bold;
-        }
-        .nav-grid a:hover {
-            background-color: #cc5500;
-        }
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(to right, #ffcc33, #ff9933); /* Yellow-orange gradient */
-            color: white;
             text-align: center;
-            padding: 80px 20px;
+            margin-bottom: 30px;
         }
-        .hero h1 {
-            font-size: 2.5em;
-            font-weight: bold;
+        .loan-form {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
         }
-        .hero p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+        .loan-form .form-control {
+            margin-bottom: 15px;
         }
-        .btn-donate {
+        .loan-form .btn-submit {
             background-color: #ff6600; /* Deep orange */
             color: white;
-            padding: 10px 20px;
             font-size: 1.2em;
             border-radius: 5px;
-            text-decoration: none;
         }
-        .btn-donate:hover {
+        .loan-form .btn-submit:hover {
             background-color: #cc5500;
         }
-        /* postbody */
-        #postbody{ 
-            font-size: 1.6em;
-            text-align: center;
-            flex: 1;
-            margin-bottom: 20px;
-        }
-        /* Apply for Loan Section */
-        #apply-for-loan {
-            background-image: url('image/youthspringNGOs.png'); /* Add your image path here */
-            background-size: cover;
-            background-position: center;
-            padding: 80px 20px;
-            color: white;
-        }
-        /* Footer */
-        #footer {
+        .footer {
             background-color: #ffe066;
             color: white;
             text-align: center;
-            font-size: 1.4em;
             padding: 15px;
             position: fixed;
             bottom: 0;
@@ -100,32 +58,105 @@
     </style>
 </head>
 <body>
+
     <!-- Header -->
-    <div id="header">Youth Spring - Empowering Nigerian Youth</div>
-    <!-- Navigation Grid -->
-    <div class="nav-grid">
-        <a href="../index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="apply-for-loan.html">Get a Loan</a>
-        <a href="donate.html">Donate</a>
-        <a href="programs.html">Our programs</a>
+    <div id="header">
+        Youth Spring - Empowering Nigerian Youth
     </div>
-    
+
     <!-- Main Content -->
-    <main>
-        <section id="apply-for-loan">
-            <div class="container">
-                <h1>Apply for Loan</h1>
-                <p>Apply for a loan to support your initiatives. [Add more details about the application process here...]</p>
+    <div class="container main-content">
+        <!-- Loan Info Section -->
+        <section id="loan-info">
+            <h2 class="section-title">Empowerment Loans Initiative</h2>
+            <p class="text-center">
+                The Youth Spring Empowerment Loans Initiative provides interest-free, small-scale startup loans to youth and underprivileged individuals with viable ideas. This program aims to foster entrepreneurship, empower local communities, and create sustainable businesses.
+            </p>
+            <p class="text-center">
+                <strong>Eligibility Criteria:</strong>
+                <ul>
+                    <li>You must be a Nigerian youth or an underprivileged individual.</li>
+                    <li>You need to present a viable business idea with a clear plan for success.</li>
+                    <li>Applicants must be able to provide a reliable guarantor.</li>
+                </ul>
+            </p>
+            <p class="text-center">
+                <strong>Loan Details:</strong>
+                <ul>
+                    <li>Amount: ₦50,000 - ₦500,000</li>
+                    <li>Interest-Free Loan</li>
+                    <li>Repayment Period: 12 months</li>
+                    <li>Mentorship during and after disbursement</li>
+                </ul>
+            </p>
+        </section>
+
+        <!-- Loan Application Form Section -->
+        <section id="loan-form">
+            <h2 class="section-title">Loan Application Form</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="loan-form">
+                        <h3 class="text-center">Apply for a Loan</h3>
+                        <form>
+                            <!-- Personal Information -->
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" required></textarea>
+                            </div>
+
+                            <!-- Business Information -->
+                            <div class="mb-3">
+                                <label for="businessName" class="form-label">Business Name</label>
+                                <input type="text" class="form-control" id="businessName" placeholder="Enter your business name" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="businessPlan" class="form-label">Business Plan (Brief)</label>
+                                <textarea class="form-control" id="businessPlan" rows="4" placeholder="Provide a brief overview of your business plan" required></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="guarantorName" class="form-label">Guarantor Name</label>
+                                <input type="text" class="form-control" id="guarantorName" placeholder="Enter your guarantor's name" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="guarantorPhone" class="form-label">Guarantor Phone Number</label>
+                                <input type="tel" class="form-control" id="guarantorPhone" placeholder="Enter your guarantor's phone number" required>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-submit">Submit Application</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
-    </main>
+    </div>
 
     <!-- Footer -->
-    <div id="footer">© 2025 Youth Spring NGOs. All rights reserved.
-    <a href="contact.html">Contact Us</a>
+    <div class="footer">
+        <p>© 2025 Youth Spring. All rights reserved.</p>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
