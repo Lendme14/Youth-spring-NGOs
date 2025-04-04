@@ -81,30 +81,35 @@
             margin-bottom: 20px;
         }
         /* Bottom Navigation */
-        .bottom-nav {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 5px;
-            background-color: #fdf6e3; 
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .bottom-nav a {
-            display: block;
-            background-color: #ff6600;
-            color: white;
-            padding: 15px;
-            border-radius: 15px;
-            text-decoration: none;
-            font-weight: bold;
-          width: 40px
-        }
-        .bottom-nav a:hover {
-            background-color: #cc5500;
-        }
+          .bottom-nav {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    align-items: center;
+    gap: 32px; /* Adjust spacing between buttons */
+    background-color: #fdf6e3; 
+    padding: 10px 0; /* Adds some vertical padding */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bottom-nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Adjust size of buttons */
+    height: 60px;
+    background-color: #ff6600;
+    color: white;
+    border-radius: 40%; /* Makes them circular */
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.bottom-nav a:hover {
+    background-color: #cc5500;
+}
         /* Footer */
         #footer {
             background-color: #ffe066;
