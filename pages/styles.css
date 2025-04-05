@@ -1,3 +1,4 @@
+
         /* General Styles */
         body {
             font-family: Arial, sans-serif;
@@ -70,6 +71,36 @@
             flex: 1;
             margin-bottom: 20px;
         }
+        /* Bottom Navigation */
+          .bottom-nav {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    align-items: center;
+    gap: 32px; /* Adjust spacing between buttons */
+    background-color: #fdf6e3; 
+    padding: 10px 0; /* Adds some vertical padding */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bottom-nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Adjust size of buttons */
+    height: 60px;
+    background-color: #ff6600;
+    color: white;
+    border-radius: 40%; /* Makes them circular */
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.bottom-nav a:hover {
+    background-color: #cc5500;
+}
         /* Footer */
         #footer {
             background-color: #ffe066;
@@ -77,8 +108,5 @@
             text-align: center;
             font-size: 1.4em;
             padding: 15px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
-    
+   
