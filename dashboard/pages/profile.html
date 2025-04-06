@@ -28,6 +28,11 @@
         .navbar {
             box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
         }
+        .error-message {
+            color: red;
+            display: none;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -56,6 +61,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
+        <div class="error-message" id="errorMessage">Error saving profile. Please try again.</div>
     </div>
     <nav class="navbar fixed-bottom navbar-light bg-light">
         <!-- Navbar contents -->
@@ -96,12 +102,14 @@
                             saveProfile(user.uid, url);
                         });
                     }).catch((error) => {
+                        showError(error);
                         console.error("Error uploading image: ", error);
                     });
                 } else {
                     saveProfile(user.uid, null);
                 }
             } else {
+                showError("No user is signed in.");
                 console.log("No user is signed in.");
             }
         });
@@ -118,7 +126,22 @@
                 await db.collection("users").doc(userId).set(profileData);
                 window.location.href = "profile-permanent.html";
             } catch (error) {
+                showError(error);
                 console.error("Error writing document: ", error);
+            }
+        }
+
+        function showError(error) {
+            const errorMessageElement = document.getElementById("errorMessage");
+            errorMessageElement.style.display = "block";
+            if (error.code === 'auth/email-already-in-use') {
+                errorMessageElement.textContent = "This email already exists. Please login instead.";
+            } else if (error.code === 'auth/invalid-email') {
+                errorMessageElement.textContent = "Invalid email. Please check the email format.";
+            } else if (error.code === 'auth/weak-password') {
+                errorMessageElement.textContent = "Weak password. Please use a stronger password.";
+            } else {
+                errorMessageElement.textContent = `Error saving profile: ${error.message || error}`;
             }
         }
     </script>
