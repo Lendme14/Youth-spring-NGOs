@@ -80,6 +80,7 @@
             measurementId: "G-24SVNJJKDC"
         };
         firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
 
         // Handle form submission
         document.getElementById("editProfileForm").addEventListener("submit", (e) => {
@@ -105,7 +106,7 @@
             }
         });
 
-        function saveProfile(userId, profileImageUrl) {
+        async function saveProfile(userId, profileImageUrl) {
             var profileData = {
                 profileImage: profileImageUrl,
                 fullName: document.getElementById("fullName").value,
@@ -113,25 +114,13 @@
                 dobDayMonth: document.getElementById("dobDayMonth").value,
                 email: document.getElementById("email").value
             };
-            firebase.firestore().collection("users").doc(userId).set(profileData)
-                .then(() => {
-                    window.location.href = "profile-permanent.html";
-                })
-                .catch((error) => {
-                    console.error("Error writing document: ", error);
-                });
+            try {
+                await db.collection("users").doc(userId).set(profileData);
+                window.location.href = "profile-permanent.html";
+            } catch (error) {
+                console.error("Error writing document: ", error);
+            }
         }
-         import { doc, setDoc } from 'firebase/firestore';
-
-const saveProfile = async (userId, profileData) => {
-  try {
-    await setDoc(doc(db, "users", userId), profileData);
-    console.log("Document successfully written!");
-  } catch (error) {
-    console.error("Error writing document: ", error);
-  }
-};
     </script>
-   
 </body>
 </html>
