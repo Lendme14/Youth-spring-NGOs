@@ -124,7 +124,7 @@
             };
             try {
                 await db.collection("users").doc(userId).set(profileData);
-                window.location.href = "dashboard.html";
+                window.location.href = "profile-permanent.html";
             } catch (error) {
                 showError(error);
                 console.error("Error writing document: ", error);
