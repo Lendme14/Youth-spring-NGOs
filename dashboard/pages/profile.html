@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
+    <title>Update ID</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Additional CSS for modern styling -->
@@ -37,7 +37,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="animate__animated animate__fadeInDown">Edit Profile</h1>
+        <h1 class="animate__animated animate__fadeInDown">Update your profile </h1>
         <form id="editProfileForm">
             <div class="form-group">
                 <label for="profileImage">Profile Image</label>
@@ -52,8 +52,8 @@
                 <input type="text" class="form-control" id="address" placeholder="Enter address">
             </div>
             <div class="form-group">
-                <label for="dobDayMonth">Date of Birth (Day and Month)</label>
-                <input type="text" class="form-control" id="dobDayMonth" placeholder="Enter date of birth (DD/MM)">
+                <label for="dobDayMonthyear">Date of Birth </label>
+                <input type="text" class="form-control" id="dobDayMonthyear" placeholder="Enter date of birth (DD/MM/yyyy)">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -61,12 +61,12 @@
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
-        <div class="error-message" id="errorMessage">Error saving profile. Please try again.</div>
+        <div class="error-message" id="errorMessage">unable to save profile. Please try again.</div>
     </div>
     <nav class="navbar fixed-bottom navbar-light bg-light">
         <!-- Navbar contents -->
-        <a class="navbar-brand" href="#">Home</a>
-        <a class="navbar-brand" href="#">Profile</a>
+        <a class="navbar-brand" href="../index.html">Home</a>
+        <a class="navbar-brand" href="signin.html">Profile</a>
         <a class="navbar-brand" href="#">Settings</a>
     </nav>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
@@ -119,12 +119,12 @@
                 profileImage: profileImageUrl,
                 fullName: document.getElementById("fullName").value,
                 address: document.getElementById("address").value,
-                dobDayMonth: document.getElementById("dobDayMonth").value,
+                dobDayMonthyear: document.getElementById("dobDayMonthyear").value,
                 email: document.getElementById("email").value
             };
             try {
                 await db.collection("users").doc(userId).set(profileData);
-                window.location.href = "profile-permanent.html";
+                window.location.href = "dashboard.html";
             } catch (error) {
                 showError(error);
                 console.error("Error writing document: ", error);
