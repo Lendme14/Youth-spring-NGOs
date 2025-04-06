@@ -121,6 +121,17 @@
                     console.error("Error writing document: ", error);
                 });
         }
+         import { doc, setDoc } from 'firebase/firestore';
+
+const saveProfile = async (userId, profileData) => {
+  try {
+    await setDoc(doc(db, "users", userId), profileData);
+    console.log("Document successfully written!");
+  } catch (error) {
+    console.error("Error writing document: ", error);
+  }
+};
     </script>
+   
 </body>
 </html>
