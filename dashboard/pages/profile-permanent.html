@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permanent Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <img id="profileImage" src="" alt="Profile Image" class="img-thumbnail">
+        <h2 id="fullName">Full Name</h2>
+        <p id="address">Address</p>
+        <p id="dob">Date of Birth: <span id="dobDayMonth"></span></p>
+        <p id="email">Email: <span id="emailMasked"></span></p>
+        <button id="applyLoanBtn" class="btn btn-primary">Apply for a Loan</button>
+    </div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <!-- Navbar contents -->
+    </nav>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD3mvLJORKunKc5HjLh73NJ1SkByp6797c",
+            authDomain: "youthspring-af954.firebaseapp.com",
+            databaseURL: "https://youthspring-af954-default-rtdb.firebaseio.com",
+            projectId: "youthspring-af954",
+            storageBucket: "youthspring-af954.firebasestorage.app",
+            messagingSenderId: "190059933611",
+            appId: "1:190059933611:web:871f54b6d282452337acee",
+            measurementId: "G-24SVNJJKDC"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Fetch user data from Firebase and display it
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                firebase.firestore().collection("users").doc(user.uid).get().then((doc) => {
+                    if (doc.exists) {
+                        var data = doc.data();
+                        document.getElementById("profileImage").src = data.profileImage;
+                        document.getElementById("fullName").innerText = data.fullName;
+                        document.getElementById("address").innerText = data.address;
+                        document.getElementById("dobDayMonth").innerText = data.dobDayMonth;
+                        document.getElementById("emailMasked").innerText = maskEmail(data.email);
+                    } else {
+                        console.log("No such document!");
+                    }
+                }).catch((error) => {
+                    console.log("Error getting document:", error);
+                });
+            } else {
+                console.log("No user is signed in.");
+            }
+        });
+
+        function maskEmail(email) {
+            var parts = email.split("@");
+            var name = parts[0];
+            var domain = parts[1];
+            var maskedName = name[0] + "*****" + name[name.length - 1];
+            return maskedName + "@" + domain;
+        }
+    </script>
+</body>
+</html>
