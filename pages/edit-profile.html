@@ -54,17 +54,39 @@
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-           apiKey: "AIzaSyD3mvLJORKunKc5HjLh73NJ1SkByp6797c",
-  authDomain: "youthspring-af954.firebaseapp.com",
-  databaseURL: "https://youthspring-af954-default-rtdb.firebaseio.com",
-  projectId: "youthspring-af954",
-  storageBucket: "youthspring-af954.firebasestorage.app",
-  messagingSenderId: "190059933611",
-  appId: "1:190059933611:web:871f54b6d282452337acee",
+            apiKey: "AIzaSyD3mvLJORKunKc5HjLh73NJ1SkByp6797c",
+            authDomain: "youthspring-af954.firebaseapp.com",
+            databaseURL: "https://youthspring-af954-default-rtdb.firebaseio.com",
+            projectId: "youthspring-af954",
+            storageBucket: "youthspring-af954.firebasestorage.app",
+            messagingSenderId: "190059933611",
+            appId: "1:190059933611:web:871f54b6d282452337acee",
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         var db = firebase.firestore();
+
+        // Function to fetch user email and populate form
+        function fetchUserEmail(userId) {
+            db.collection("users").doc(userId).get().then((doc) => {
+                if (doc.exists) {
+                    var userData = doc.data();
+                    document.getElementById('email').value = userData.email;
+                    document.getElementById('fullName').value = userData.fullName;
+                    document.getElementById('phoneNumber').value = userData.phoneNumber;
+                    document.getElementById('dob').value = userData.dob;
+                    document.getElementById('description').value = userData.description;
+                } else {
+                    console.log("No such document!");
+                }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+        }
+
+        // Example user ID, replace with the actual user ID
+        var userId = "exampleUserId";
+        fetchUserEmail(userId);
 
         // Form submission handler
         document.getElementById('editProfileForm').addEventListener('submit', function(event) {
