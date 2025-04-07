@@ -4,21 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <!-- Bootstrap CSSs -->
+    <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: 'Arial', sans-serif;
+        }
+
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
         }
+
         .header .logo {
             font-size: 24px;
             font-weight: bold;
         }
-        .header .dropdown-toggle::after {
+
+        .dropdown-menu {
+            min-width: 150px;
+        }
+
+        .dropdown-toggle::after {
             display: none;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-body p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-outline-danger {
+            font-size: 1rem;
+        }
+
+        .dropdown-toggle {
+            font-size: 1.1rem;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card-body span {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -26,7 +85,7 @@
     <div class="container mt-5">
         <div class="header">
             <button class="btn btn-outline-danger" onclick="logout()">Logout</button>
-            <div class="logo">Site Logo</div>
+            <div class="logo">YouthSpring</div>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Menu
@@ -39,8 +98,8 @@
         </div>
         
         <div class="card mt-4">
-            <div class="card-header text-center">
-                <h4>User Profile</h4>
+            <div class="card-header">
+                User Profile
             </div>
             <div class="card-body">
                 <p><strong>Full Name:</strong> <span id="fullName"></span></p>
@@ -53,7 +112,7 @@
     </div>
     
     <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Firebase SDK -->
@@ -63,12 +122,12 @@
         // Your web app's Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyD3mvLJORKunKc5HjLh73NJ1SkByp6797c",
-  authDomain: "youthspring-af954.firebaseapp.com",
-  databaseURL: "https://youthspring-af954-default-rtdb.firebaseio.com",
-  projectId: "youthspring-af954",
-  storageBucket: "youthspring-af954.firebasestorage.app",
-  messagingSenderId: "190059933611",
-  appId: "1:190059933611:web:871f54b6d282452337acee",
+            authDomain: "youthspring-af954.firebaseapp.com",
+            databaseURL: "https://youthspring-af954-default-rtdb.firebaseio.com",
+            projectId: "youthspring-af954",
+            storageBucket: "youthspring-af954.firebasestorage.app",
+            messagingSenderId: "190059933611",
+            appId: "1:190059933611:web:871f54b6d282452337acee",
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
