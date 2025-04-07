@@ -40,8 +40,8 @@
         <h1 class="animate__animated animate__fadeInDown">Update your profile</h1>
         <form id="editProfileForm">
             <div class="form-group">
-                <label for="profileImage">Profile Image</label>
-                <input type="file" class="form-control-file" id="profileImageFile" accept="image/*">
+                <label for="defaultProfileImage">Profile Image</label>
+                <img src="path/to/default/icon.png" alt="Default Profile Icon" id="defaultProfileImage" class="img-thumbnail">
             </div>
             <div class="form-group">
                 <label for="fullName">Full Name</label>
@@ -93,30 +93,16 @@
             e.preventDefault();
             var user = firebase.auth().currentUser;
             if (user) {
-                var profileImageFile = document.getElementById("profileImageFile").files[0];
-                if (profileImageFile) {
-                    var storageRef = firebase.storage().ref();
-                    var profileImageRef = storageRef.child('profile_images/' + user.uid + '/' + profileImageFile.name);
-                    profileImageRef.put(profileImageFile).then((snapshot) => {
-                        snapshot.ref.getDownloadURL().then((url) => {
-                            saveProfile(user.uid, url);
-                        });
-                    }).catch((error) => {
-                        showError(error);
-                        console.error("Error uploading image: ", error);
-                    });
-                } else {
-                    saveProfile(user.uid, null);
-                }
+                saveProfile(user.uid);
             } else {
                 showError("No user is signed in.");
                 console.log("No user is signed in.");
             }
         });
 
-        async function saveProfile(userId, profileImageUrl) {
+        async function saveProfile(userId) {
             var profileData = {
-                profileImage: profileImageUrl,
+                profileImage: "path/to/default/icon.png",
                 fullName: document.getElementById("fullName").value,
                 address: document.getElementById("address").value,
                 dobDayMonthyear: document.getElementById("dobDayMonthyear").value,
