@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4>Edit Profile</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="editProfileForm">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" placeholder="Surname, Middle Name, Last Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="user@example.com" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="text" class="form-control" id="phoneNumber" placeholder="+234XXXXXXXXXX" pattern="^\+234\d{10}$" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="text" class="form-control" id="dob" placeholder="dd/mm/yyyy" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">User Description</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="Describe yourself in 40-60 words" minlength="40" maxlength="60" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+           apiKey: "AIzaSyD3mvLJORKunKc5HjLh73NJ1SkByp6797c",
+  authDomain: "youthspring-af954.firebaseapp.com",
+  databaseURL: "https://youthspring-af954-default-rtdb.firebaseio.com",
+  projectId: "youthspring-af954",
+  storageBucket: "youthspring-af954.firebasestorage.app",
+  messagingSenderId: "190059933611",
+  appId: "1:190059933611:web:871f54b6d282452337acee",
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore();
 
+        // Form submission handler
+        document.getElementById('editProfileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var fullName = document.getElementById('fullName').value;
+            var email = document.getElementById('email').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            var dob = document.getElementById('dob').value;
+            var description = document.getElementById('description').value;
+
+            // Save data to Firestore
+            db.collection("users").doc(email).set({
+                fullName: fullName,
+                phoneNumber: phoneNumber,
+                dob: dob,
+                description: description
+            }).then(function() {
+                alert("Profile updated successfully!");
+                window.location.href = "/dashboard"; // Redirect to dashboard
+            }).catch(function(error) {
+                console.error("Error updating profile: ", error);
+            });
+        });
+    </script>
+</body>
+</html>
