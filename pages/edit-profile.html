@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -87,7 +89,7 @@
                 });
             } else {
                 alert("You must be logged in to access this page.");
-                window.location.href = "pages/sign-in.html";
+                window.location.href = "sign-in.html";
             }
         });
 
@@ -118,22 +120,13 @@
                     description
                 }).then(() => {
                     alert("Profile updated successfully!");
-                    window.location.href = "../dashboard.html";
+                    window.location.href = "dashboard.html";
                 }).catch((error) => {
                     console.error("Error updating profile:", error);
                 });
             }
         });
-        await setDoc(doc(db, "Users", user.uid), {
-  fullName: nameInput,
-  dateOfBirth: dobInput,
-  address: addressInput,
-  phoneNumber: phoneInput,
-  description: descInput,
-  profileCompleted: true
-});
-
-window.location.href = "/dashboard.html"; // redirect to dashboard
     </script>
 </body>
+
 </html>
