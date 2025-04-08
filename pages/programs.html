@@ -161,10 +161,15 @@
     </style>
 </head>
 <body>
-    <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth-compat.js"></script>
+ <!-- Include Firebase Core -->
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app-compat.js"></script>
+
+<!-- Include other Firebase products you need -->
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth-compat.js"></script>
+
+<!-- Your script -->
 <script>
+  // Your Firebase initialization and authentication code here
   const firebaseConfig = {
     apiKey: "AIzaSyD3mvLJORKunKc5HjLh73NJ1SkByp6797c",
     authDomain: "youthspring-af954.firebaseapp.com",
@@ -175,9 +180,12 @@
     appId: "1:190059933611:web:871f54b6d282452337acee",
     measurementId: "G-24SVNJJKDC"
   };
-  firebase.initializeApp(firebaseConfig);
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
 
-  firebase.auth().onAuthStateChanged(function(user) {
+  // Initialize Firebase Authentication and get a reference to the service
+  const auth = firebase.auth();
+  auth.onAuthStateChanged(function(user) {
     if (!user) {
       localStorage.setItem("redirectAfterLogin", window.location.pathname);
       window.location.href = "/signup.html"; // or "/login.html" — your choice
