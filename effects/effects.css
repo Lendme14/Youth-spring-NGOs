@@ -1,0 +1,50 @@
+ body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .neon-container {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: rgba(32, 178, 170, 0.1); /* light sea green transparent */
+      border-left: 5px solid #20B2AA;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 20px #20B2AA, 0 0 40px #20B2AA;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .neon-text {
+      font-size: 20px;
+      color: #20B2AA;
+      text-shadow: 0 0 5px #20B2AA, 0 0 10px #20B2AA, 0 0 20px #20B2AA;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 50%;
+      left: 270px;
+      transform: translateY(-50%);
+      background-color: #20B2AA;
+      color: #000;
+      border: none;
+      padding: 10px 15px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px 0 0 4px;
+      box-shadow: 0 0 10px #20B2AA;
+      transition: left 0.4s ease-in-out;
+    }
+
+    .hidden {
+      transform: translate(-100%, -50%);
+    }
+
+    .hidden-btn {
+      left: 10px;
+    }
