@@ -51,15 +51,15 @@ onAuthStateChanged(auth, async (user) => {
       if (userData.profileCompleted) {
         window.location.href = "/dashboard.html"; // go to dashboard
       } else if (userData.isNewUser) {
-        window.location.href = "pages/edith-profile.html"; // go to profile form
+        window.location.href = "pages/edit-profile.html"; // go to profile form
       } else {
         // If the user is not new and profile is not completed
-        window.location.href = "pages/edith-profile.html"; // go to profile form - CORRECTED
+        window.location.href = "pages/edit-profile.html"; // go to profile form - CORRECTED
       }
 
     } else {
       // No user doc yet – treat as new
-      window.location.href = "pages/edith-profile.html";
+      window.location.href = "pages/edit-profile.html";
     }
   }
 });
