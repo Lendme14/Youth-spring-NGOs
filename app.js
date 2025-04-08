@@ -28,7 +28,8 @@ onAuthStateChanged(auth, (user) => {
         otherData: {
           age: parseInt(document.getElementById("age").value),
           isVerified: true
-        }
+        },
+        isNewUser: false // Set isNewUser to false after saving the profile
       });
 
       alert("User info saved!");
@@ -38,7 +39,7 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// Redirect based on profile completion
+// Redirect based on profile completion and new user status
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     const userRef = doc(db, "Users", user.uid);
@@ -48,6 +49,9 @@ onAuthStateChanged(auth, async (user) => {
       const userData = userSnap.data();
 
       if (userData.profileCompleted) {
+        window.location.href = "/dashboard.html"; // go to dashboard
+      } else if (!userData.isNewUser) {
+        // If the user is not new and profile is not completed
         window.location.href = "/dashboard.html"; // go to dashboard
       } else {
         window.location.href = "/update-profile.html"; // go to profile form
