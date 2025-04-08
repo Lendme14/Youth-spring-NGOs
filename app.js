@@ -1,7 +1,7 @@
 // Firebase imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
 // Firebase config
 const firebaseConfig = {
@@ -37,12 +37,8 @@ onAuthStateChanged(auth, (user) => {
     alert("You must be signed in to save info.");
   }
 });
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
-const db = getFirestore();
-const auth = getAuth();
-
+// Redirect based on profile completion
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     const userRef = doc(db, "Users", user.uid);
@@ -63,11 +59,3 @@ onAuthStateChanged(auth, async (user) => {
     }
   }
 });
-{
-  fullName: "John Doe",
-  dateOfBirth: "2001-01-01",
-  address: "123 Main St",
-  phoneNumber: "1234567890",
-  description: "Just me.",
-  profileCompleted: true
-    }
