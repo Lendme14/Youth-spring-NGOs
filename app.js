@@ -37,3 +37,29 @@ onAuthStateChanged(auth, (user) => {
     alert("You must be signed in to save info.");
   }
 });
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
+const db = getFirestore();
+const auth = getAuth();
+
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    const userRef = doc(db, "Users", user.uid);
+    const userSnap = await getDoc(userRef);
+
+    if (userSnap.exists()) {
+      const userData = userSnap.data();
+
+      if (userData.profileCompleted) {
+        window.location.href = "/dashboard.html"; // go to dashboard
+      } else {
+        window.location.href = "/update-profile.html"; // go to profile form
+      }
+
+    } else {
+      // No user doc yet – treat as new
+      window.location.href = "/update-profile.html";
+    }
+  }
+});
