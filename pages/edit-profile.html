@@ -124,6 +124,16 @@
                 });
             }
         });
+        await setDoc(doc(db, "Users", user.uid), {
+  fullName: nameInput,
+  dateOfBirth: dobInput,
+  address: addressInput,
+  phoneNumber: phoneInput,
+  description: descInput,
+  profileCompleted: true
+});
+
+window.location.href = "/dashboard.html"; // redirect to dashboard
     </script>
 </body>
 </html>
