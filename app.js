@@ -63,3 +63,11 @@ onAuthStateChanged(auth, async (user) => {
     }
   }
 });
+{
+  fullName: "John Doe",
+  dateOfBirth: "2001-01-01",
+  address: "123 Main St",
+  phoneNumber: "1234567890",
+  description: "Just me.",
+  profileCompleted: true
+    }
