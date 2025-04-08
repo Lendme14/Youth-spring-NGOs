@@ -188,7 +188,7 @@
   auth.onAuthStateChanged(function(user) {
     if (!user) {
       localStorage.setItem("redirectAfterLogin", window.location.pathname);
-      window.location.href = "/sign-up.html"; // or "/login.html" — your choice
+      window.location.href = "pages/sign-up.html"; // or "/login.html" — your choice
     }
   });
 </script>
