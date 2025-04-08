@@ -59,9 +59,10 @@ onAuthStateChanged(auth, async (user) => {
 
     } else {
       // No user doc yet – treat as new
-      window.location.href = "/// Redirect based on profile completion and new user status
-onAuthStateChanged(auth, async (user) => {
-  if (user) {
+      window.location.href = "pages/edith-profile.html";
+      // Redirect based on profile completion and new user status
+     onAuthStateChanged(auth, async (user) => {
+     if (user) {
     const userRef = doc(db, "Users", user.uid);
     const userSnap = await getDoc(userRef);
 
