@@ -50,16 +50,36 @@ onAuthStateChanged(auth, async (user) => {
 
       if (userData.profileCompleted) {
         window.location.href = "/dashboard.html"; // go to dashboard
-      } else if (!userData.isNewUser) {
-        // If the user is not new and profile is not completed
-        window.location.href = "/dashboard.html"; // go to dashboard
+      } else if (userData.isNewUser) {
+        window.location.href = "pages/edith-profile.html"; // go to profile form
       } else {
-        window.location.href = "/update-profile.html"; // go to profile form
+        // If the user is not new and profile is not completed
+        window.location.href = "pages/edith-profile.html"; // go to profile form - CORRECTED
       }
 
     } else {
       // No user doc yet – treat as new
-      window.location.href = "/update-profile.html";
+      window.location.href = "/// Redirect based on profile completion and new user status
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    const userRef = doc(db, "Users", user.uid);
+    const userSnap = await getDoc(userRef);
+
+    if (userSnap.exists()) {
+      const userData = userSnap.data();
+
+      if (userData.profileCompleted) {
+        window.location.href = "/dashboard.html"; // go to dashboard
+      } else if (userData.isNewUser) {
+        window.location.href = "pages/edith-profile.html"; // go to profile form
+      } else {
+        // If the user is not new and profile is not completed
+        window.location.href = "pages/edith-profile.html"; // go to profile form - CORRECTED
+      }
+
+    } else {
+      // No user doc yet – treat as new
+      window.location.href = "pages/edith-profile.html";
     }
   }
 });
