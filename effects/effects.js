@@ -1,4 +1,4 @@
-<script>
+
     const neonBox = document.getElementById('neonBox');
     const toggleBtn = document.getElementById('toggleBtn');
 
@@ -10,4 +10,4 @@
       toggleBtn.classList.toggle('hidden-btn');
       toggleBtn.textContent = isVisible ? 'Hide' : 'Show';
     });
-  </script>
+  
