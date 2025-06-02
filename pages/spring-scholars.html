@@ -111,7 +111,7 @@
                             </li>
                             <li><b>How to Apply:</b>
                                 <ol>
-                                    <li>Submit an online application via grok.com, Grok iOS or Android app.</li>
+                                    <li>Complete the online application form below.</li>
                                     <li>Attach proof of need & academic records.</li>
                                     <li>Write a personal statement about your goals.</li>
                                     <li>Await review by our community-backed panel.</li>
@@ -127,7 +127,7 @@
 
         <div class="ad-banner justify-content-center">
             <i class="bi bi-lightbulb"></i>
-            <span><strong>Tip:</strong> Mention specific needs (e.g., books, laptop) in your application for better support.</span>
+            <span><strong>Tip:</strong> Mention specific needs (e.g., books, laptop, mentorship) in your application for better support.</span>
         </div>
 
         <hr class="section-divider">
@@ -137,6 +137,9 @@
             <h2 class="scholars-highlight mb-0">5 Ways to Maximize the Spring Scholars Grant</h2>
         </div>
         <div class="row g-4 mb-4">
+            <!-- ... previously listed 5 ways, unchanged ... -->
+            <!-- For brevity, leaving section unchanged from prior version -->
+            <!-- You can keep or further style this section as needed -->
             <div class="col-md-6">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
@@ -226,7 +229,7 @@
                             <li><b>Grants:</b> Financial aid for tuition, fees, or essentials, tailored to your needs (₦10,000 - ₦100,000 per semester).</li>
                             <li><b>Learning Materials:</b> Books, stationery, and tech tools for top performers.</li>
                             <li><b>Mentorship:</b> Personalized guidance for academic and career growth.</li>
-                            <li><b>Accessibility:</b> Simple application every semester via grok.com or the Grok mobile app.</li>
+                            <li><b>Accessibility:</b> Simple application every semester online.</li>
                         </ul>
                     </div>
                 </div>
@@ -252,7 +255,7 @@
         <div class="text-center my-5">
             <h2 class="scholars-highlight my-3"><i class="bi bi-stars"></i> Join Spring Scholars Today!</h2>
             <p>
-                Don’t let financial barriers stop your dreams. Apply for the Spring Scholars Student Grant Program via grok.com, the Grok iOS app, or Grok Android app.<br>
+                Don’t let financial barriers stop your dreams. Apply for the Spring Scholars Student Grant Program below.<br>
                 We’re here to support bright, struggling students with grants, materials, and mentorship.<br>
                 <b>Together, let’s ensure no dream dies because of tuition!</b>
             </p>
@@ -261,34 +264,79 @@
         <div class="my-5">
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <h4 class="scholars-highlight mb-3"><i class="bi bi-envelope-paper-heart"></i> Interested? Reach Out to Us!</h4>
-                    <form action="mailto:info@springscholars.org" method="post" enctype="text/plain">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="name" name="Name" required>
+                    <h4 class="scholars-highlight mb-3"><i class="bi bi-pencil-square"></i> Student Grant Application Form</h4>
+                    <form action="#" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" name="Full Name" required>
+                                <div class="invalid-feedback">Full name is required.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="Email" required>
+                                <div class="invalid-feedback">Valid email is required.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" name="Phone" required>
+                                <div class="invalid-feedback">Phone number is required.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="school" class="form-label">School/Institution</label>
+                                <input type="text" class="form-control" id="school" name="School" required>
+                                <div class="invalid-feedback">School or institution is required.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="level" class="form-label">Level/Year</label>
+                                <input type="text" class="form-control" id="level" name="Level" placeholder="e.g., SS2, 300L" required>
+                                <div class="invalid-feedback">Level/Year is required.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="course" class="form-label">Course/Field of Study</label>
+                                <input type="text" class="form-control" id="course" name="Course" required>
+                                <div class="invalid-feedback">Course or field of study is required.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="needType" class="form-label">Type of Support Needed</label>
+                                <select class="form-select" id="needType" name="Support Needed" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="Tuition/Fees">Tuition/Fees</option>
+                                    <option value="Learning Materials">Learning Materials</option>
+                                    <option value="Mentorship">Mentorship</option>
+                                    <option value="All of the above">All of the above</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a support type.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mentorshipArea" class="form-label">Preferred Mentorship Area</label>
+                                <input type="text" class="form-control" id="mentorshipArea" name="Mentorship Area" placeholder="e.g., Medicine, Engineering, Tech, etc.">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="proofOfNeed" class="form-label">Proof of Need <small>(income statement, letter, etc.)</small></label>
+                                <input type="file" class="form-control" id="proofOfNeed" name="Proof of Need" required>
+                                <div class="invalid-feedback">Please upload proof of need.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="academicRecords" class="form-label">Academic Records <small>(transcript/report card)</small></label>
+                                <input type="file" class="form-control" id="academicRecords" name="Academic Records" required>
+                                <div class="invalid-feedback">Please upload your academic records.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="statement" class="form-label">Personal Statement</label>
+                                <textarea class="form-control" id="statement" name="Personal Statement" rows="4" placeholder="Tell us about your goals, ambitions, and why you need this grant." required></textarea>
+                                <div class="invalid-feedback">Personal statement is required.</div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="Email" required>
+                        <div class="mt-4 text-end">
+                            <button type="submit" class="btn btn-success btn-lg"><i class="bi bi-send"></i> Submit Application</button>
                         </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Your Message / Area of Interest</label>
-                            <textarea class="form-control" id="message" name="Message" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-success"><i class="bi bi-send"></i> Send Message</button>
                     </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-4">
-            <p class="scholars-quote">
-                <i class="bi bi-quote"></i> No dream should die because of tuition.<br>
-                &copy; 2025 Spring Scholars. All rights reserved.
-            </p>
-        </div>
-    </div>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-</body>
-    </html>
+                    <script>
+                        // Bootstrap form validation
+                        (function () {
+                            'use strict'
+                            var forms = document.querySelectorAll('.needs-validation')
+                            Array.prototype.slice.call(forms)
+                                .forEach(function (form) {
+                                    form.a
